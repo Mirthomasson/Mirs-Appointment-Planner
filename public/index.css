@@ -94,4 +94,5 @@ select {
   color: whitesmoke;
   padding: 5px;
   border-radius: 2px;
+  width: min-content;
 }
