@@ -10,44 +10,33 @@ export const ContactForm = ({
   setEmail,
   handleSubmit
 }) => {
+
   return (
     <form onSubmit={handleSubmit}>
-      <label>
-        <input
-          type="text"
-          name="name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-          placeholder="Contact Name"
-        />
-      </label>
-      <br />
-      <label>
-        <input
-          type="tel"
-          name="phone"
-          value={phone}
-          onChange={(e) => setPhone(e.target.value)}
-          required
-          // regex is for US phone numbers
-          pattern="[1-9][0-9]{2}-[1-9][0-9]{2}-[0-9]{4}"
-          placeholder="Contact Phone (###-###-####)"
-        />
-      </label>
-      <br />
-      <label>
-        <input
-          type="email"
-          name="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-          placeholder="Contact Email"
-        />
-      </label>
-      <br />
-      <input type="submit" value="Add Contact" />
+      <input 
+        id='name' 
+        type='text' 
+        placeholder='Contact Name' 
+        value={name} 
+        required
+        onChange={(e) => setName(e.target.value)} >
+       </input>
+      <input 
+        id='phone' 
+        type='tel'  
+        placeholder='Contact Phone Number' 
+        value={phone}
+        pattern='^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$'
+        required
+        onChange={(e) => setPhone(e.target.value)}>
+      </input>
+      <input 
+        id='email' 
+        type='email' 
+        placeholder='Contact Email' 
+        value={email}
+        onChange={(e) => setEmail(e.target.value)} ></input>
+      <input type='submit'></input>
     </form>
   );
 };

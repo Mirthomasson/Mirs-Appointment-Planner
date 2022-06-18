@@ -5,35 +5,41 @@ import { AppointmentsPage } from "./containers/appointmentsPage/AppointmentsPage
 import { ContactsPage } from "./containers/contactsPage/ContactsPage";
 
 function App() {
-  const [appointments, setAppointments] = useState([]);
+
   const [contacts, setContacts] = useState([]);
+
+  const addContact = (name, phone, email) => {
+    const contact = {
+      name: name,
+      phone: phone,
+      email: email
+    }
+
+    setContacts((prev) => ([
+      ...prev,
+      contact
+    ]))
+  };
+
+  const [appointments, setAppointments] = useState([]);
+
+  const addAppointment = (title, contact, date, time) => {
+    const appointment = {
+      title: title, 
+      contact: contact, 
+      date: date, 
+      time: time
+    }
+
+    setAppointments((prev) => ([
+      ...prev,
+      appointment
+    ]))
+  };
 
   const ROUTES = {
     CONTACTS: "/contacts",
     APPOINTMENTS: "/appointments",
-  };
-
-  const addAppointment = (title, contact, date, time) => {
-    setAppointments([
-      ...appointments,
-      {
-        title: title,
-        contact: contact,
-        date: date,
-        time: time,
-      },
-    ]);
-  };
-
-  const addContact = (name, phone, email) => {
-    setContacts([
-      ...contacts,
-      {
-        name: name,
-        phone: phone,
-        email: email,
-      },
-    ]);
   };
 
   return (
@@ -52,19 +58,21 @@ function App() {
             <Redirect to={ROUTES.CONTACTS} />
           </Route>
           <Route path={ROUTES.CONTACTS}>
-            <ContactsPage contacts={contacts} addContact={addContact} />
+            <ContactsPage 
+              contacts={contacts} 
+              addContact={addContact} />
           </Route>
           <Route path={ROUTES.APPOINTMENTS}>
-            <AppointmentsPage
-              appointments={appointments}
-              addAppointment={addAppointment}
-              contacts={contacts}
-            />
+            <AppointmentsPage 
+              appointments={appointments} 
+              addAppointment={addAppointment} 
+              contacts={contacts} />
           </Route>
         </Switch>
       </main>
     </>
   );
 }
+
 
 export default App;

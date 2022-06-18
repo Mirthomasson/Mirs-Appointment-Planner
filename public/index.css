@@ -5,15 +5,24 @@
 
 nav > a {
   font-style: normal;
-  font-weight: normal;
+  font-weight: bold;
   font-size: 14px;
-  color: #000000;
+  color: whitesmoke;
   margin-right: 30.5px;
   text-decoration-line: none;
+  background-color: blue;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+nav a:hover {
+  background-color: darkblue;
 }
 
 nav > a.active {
   text-decoration-line: underline;
+  background-color: darkblue;
+
 }
 
 nav {
@@ -30,8 +39,6 @@ h2 {
   margin-bottom: 18px;
 }
 
-section {
-}
 
 hr {
   border: none;
@@ -40,8 +47,8 @@ hr {
 }
 
 input[type="submit"] {
-  background: #03a8d8;
-  border-radius: 4px;
+  background: forestgreen;
+  border-radius: 5px;
   color: #ffffff;
   font-weight: bold;
   font-size: 14px;
@@ -52,6 +59,10 @@ input[type="submit"] {
   font-family: "Open Sans", sans-serif;
   margin-top: 10px;
   margin-bottom: 0px;
+}
+
+input[type="submit"]:hover {
+  background: darkgreen;
 }
 
 input,
@@ -79,4 +90,8 @@ select {
 
 .tile-container {
   margin-bottom: 20px;
+  background-color:purple;
+  color: whitesmoke;
+  padding: 5px;
+  border-radius: 2px;
 }
